@@ -54,3 +54,36 @@ Android project updated with cordova-android@6.2.3
 --save flag or autosave detected
 Saving android@~6.2.3 into config.xml file ...
 ```
+
+- 3 Mac OSX 权限问题 运行 cordova build android 时报错 Error: spawn EACCES
+```
+➜  conditioner-app git:(dev) cordova build android
+ANDROID_HOME=/Volumes/MAC-DISK/DeveloperTools/Android/sdk
+JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home
+Subproject Path: CordovaLib
+Error: spawn EACCES
+```
+出现这种情况时 应该 加命令参数 cordova build android --verbose 再次编译时会显示出错位置 
+
+```
+略。。。。
+ANDROID_HOME=/Volumes/MAC-DISK/DeveloperTools/Android/sdk
+JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home
+Subproject Path: CordovaLib
+Running command: /Users/longyuan/WebstormProjects/conditioner/conditioner-app/platforms/android/g
+radlew cdvBuildDebug -b /Users/longyuan/WebstormProjects/conditioner/conditioner-app/platforms/an
+droid/build.gradle -Dorg.gradle.daemon=true -Dorg.gradle.jvmargs=-Xmx2048m -Pandroid.useDeprecate
+dNdk=true
+Error: spawn EACCES
+```
+例如我这里显示 执行到 /Users/longyuan/WebstormProjects/conditioner/conditioner-app/platforms/android/gradlew 权限异常
+那么使用 
+```
+chmod 777 platforms/android/gradlew
+```
+修复权限
+
+继续编译  正常通过 如果这里继续报错 重复以上动作
+
+
+
