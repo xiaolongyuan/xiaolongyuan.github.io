@@ -1,6 +1,5 @@
 ## Cordova 环境配置
 
-- 需要配置 ANDROID_HOME 例如
 - windows
    ```
    # 新增 ANDROID_HOM
